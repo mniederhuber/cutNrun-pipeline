@@ -15,7 +15,6 @@ chromSize_Path  = config['genome'][REFGENOME]['chrSize']
 
 genomeSize = config['genome'][REFGENOME]['genomeSize']
 readLen = config['readLen']
-
 modules = config['module']
 #########
 # Validation 
@@ -294,13 +293,13 @@ rule removeDups:
 		bam = 'Bam/{sample}_' +  combinedGenome + '_trim_q5_dupsRemoved.bam',
 		index = 'Bam/{sample}_' + combinedGenome + '_trim_q5_dupsRemoved.bam.bai'
 	params:
-	    	dupType = config['dupType']
+		dupType = config['dupType']
 	envmodules:
 		modules['samtoolsVer']
 	shell:
 		"""
 		#samtools view -@ 4 -bF 0x400 {input} > {output.bam} &&
-		samtools view -@ 4 -b -e '[DT]!={config.dupType}' {input} > {output.bam} &&
+		samtools view -@ 4 -b -e '[DT]!="{params.dupType}"' {input} > {output.bam} &&
 		samtools index {output.bam} {output.index}
 
 		"""
