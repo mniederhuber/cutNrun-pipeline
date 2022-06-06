@@ -267,7 +267,8 @@ rule qFilter:
 		"""
 		samtools view -@ 4 -bq 5 {input} > {output}
 		"""
-
+#adding TAGGING_POLICY parameter to picard to add 'DT' tag to marked bam files
+#makes it possible to filter based on duplicate type, optical [SQ] vs library [LB]
 rule markDups:
 	input:
 		'Bam/{sample}_{species}_trim_q5.bam'
@@ -285,19 +286,26 @@ rule markDups:
 		java -Xmx8g -jar {params.picardPath} MarkDuplicates INPUT= {output.sorted} OUTPUT= {output.markedDups} METRICS_FILE= {output.PCRdups} REMOVE_DUPLICATES= false ASSUME_SORTED= true TAGGING_POLICY= All
 		"""
 # TODO: remove dups in markDups rule
+# Trying out using samtools view -e flag to filter based on duplicate type rather than all duplicates
 rule removeDups:
 	input:
 		'Bam/{sample}_' + combinedGenome + '_trim_q5_dupsMarked.bam'
 	output:
 		bam = 'Bam/{sample}_' +  combinedGenome + '_trim_q5_dupsRemoved.bam',
 		index = 'Bam/{sample}_' + combinedGenome + '_trim_q5_dupsRemoved.bam.bai'
+	params:
+	    	dupType = config['dupType']
 	envmodules:
 		modules['samtoolsVer']
 	shell:
 		"""
-		samtools view -@ 4 -bF 0x400 {input} > {output.bam} &&
+		#samtools view -@ 4 -bF 0x400 {input} > {output.bam} &&
+		samtools view -@ 4 -b -e '[DT]!={config.dupType}' {input} > {output.bam} &&
 		samtools index {output.bam} {output.index}
+
 		"""
+# To filter out sequencing duplicates, aka optical only
+#samtools view -e '[DT]!="SQ"' marked.bam > test2.sam
 
 rule collect_genome_align_stats:
 	input:
