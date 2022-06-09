@@ -19,7 +19,7 @@
 			"bowtie" : "/proj/mckaylab/genomeFiles/dm6/Bowtie2Index/genome",
 			"fasta" : "/proj/mckaylab/genomeFiles/dm6/dm6.fa",
 			"chrSize" : "/proj/mckaylab/genomeFiles/dm6/dm6_chromSizes.txt",
-			"controlDNAPath" : "/proj/mckaylab/genomeFiles/dm6/ControlGenomicDNA/ControlGenomicDNA_trim_q5_dupsRemoved.bed",
+			"controlDNAPath" : "/proj/mckaylab/genomeFiles/dm6/CnR_Controls/Bed/Merged/yw_3LW_Wing_CnR_IgG_Sup_Merge_dm6_trim_q5_dupsRemoved_all.bed",
 			"genomeSize" : 137547960
 		},
 		"ecoli" : { 
