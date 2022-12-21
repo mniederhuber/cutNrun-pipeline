@@ -404,7 +404,7 @@ rule splitFragments:
 		"fragment"
 	shell:
 		"""
-    cut -f 1,2,6,7 {input} | awk -v OFS='\t' '{{print $0, ($3-$2)}}' - > {output.allFrags}
+		cut -f 1,2,6,7 {input} | awk -v OFS='\t' '{{print $0, ($3-$2)}}' - > {output.allFrags}
 		awk -v OFS='\t' '($5>20) && ($5<120) {{print $0}}' {output.allFrags} > {output.smallFrags}
 		awk -v OFS='\t' '($5>150) && ($5<700) {{print $0}}' {output.allFrags} > {output.bigFrags}
 		"""
