@@ -1,0 +1,10 @@
+Sample	treatment_redundant_rate	treatment_max_duplicates	treatment_fragments_after_filtering	fragment_size	treatment_fragments_total	d
+osaGFP-3LW-wing-aGFP-CnR-sup-rep1_dm6_trim_q5_dupsRemoved_150to700	0.01	1.0	111961.0	269.0	113059.0	269.0
+osaGFP-3LW-wing-aGFP-CnR-sup-rep1_dm6_trim_q5_dupsRemoved_20to120	0.01	1.0	379332.0	59.0	383825.0	59.0
+osaGFP-3LW-wing-aGFP-CnR-sup-rep1_dm6_trim_q5_dupsRemoved_allFrags	0.01	1.0	525246.0	108.0	531156.0	108.0
+osaGFP-3LW-wing-aGFP-CnR-sup-rep2_dm6_trim_q5_dupsRemoved_150to700	0.01	1.0	113160.0	276.0	114242.0	276.0
+osaGFP-3LW-wing-aGFP-CnR-sup-rep2_dm6_trim_q5_dupsRemoved_20to120	0.01	1.0	324529.0	60.0	328173.0	60.0
+osaGFP-3LW-wing-aGFP-CnR-sup-rep2_dm6_trim_q5_dupsRemoved_allFrags	0.01	1.0	475114.0	117.0	480300.0	117.0
+yw-3LW-wing-aGFP-CnR-sup-rep1_dm6_trim_q5_dupsRemoved_150to700	0.01	1.0	32674.0	262.0	33171.0	262.0
+yw-3LW-wing-aGFP-CnR-sup-rep1_dm6_trim_q5_dupsRemoved_20to120	0.04	1.0	53409.0	71.0	55720.0	71.0
+yw-3LW-wing-aGFP-CnR-sup-rep1_dm6_trim_q5_dupsRemoved_allFrags	0.03	1.0	102284.0	141.0	105413.0	141.0
