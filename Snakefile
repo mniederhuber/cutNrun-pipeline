@@ -374,7 +374,9 @@ rule nameSortBam:
 		"""
 		samtools sort -n {input} -o {output}
 		"""
-
+		
+#note that bedtools bamtobed produces a standard bedpe file with 6+ columns: chr, start, end, chr, start, end...
+#importantly, this differs than the expected "bedpe" format for macs, which is a 3 col file
 rule convertBamToBed:
 	input:
 		bam = 'Bam/{sample}_{species}_trim_q5_dupsRemoved_nameSorted.bam',
@@ -386,7 +388,10 @@ rule convertBamToBed:
 		"""
 		bedtools bamtobed -bedpe -i {input.bam} | sort -k 1,1 -k 2,2n > {output}
 		"""
-
+		
+#cut cols 1,2,6,7 = chr_1, start_1, end_2, fragment_id
+#pipe to awk, calculate fragment size ($3-$2) and return full line with frag size to output file
+#fragments are then split by fragment size based on this allFrags.bed output
 rule splitFragments:
 	input:
 		'Bed/{sample}_{REFGENOME}_trim_q5_dupsRemoved.bed'
@@ -398,7 +403,7 @@ rule splitFragments:
 		"fragment"
 	shell:
 		"""
-		cut -f 1,2,6,7 {input} | awk -F '\t' '{{print $0, ($3-$2)}}' - > {output.allFrags}
+		cut -f 1,2,6,7 {input} | awk -v OFS='\t' '{{print $0, ($3-$2)}}' - > {output.allFrags}
 		awk -v OFS='\t' '($5>20) && ($5<120) {{print $0}}' {output.allFrags} > {output.smallFrags}
 		awk -v OFS='\t' '($5>150) && ($5<700) {{print $0}}' {output.allFrags} > {output.bigFrags}
 		"""
@@ -446,7 +451,7 @@ rule makeSpikeNormFragmentBedGraphs:
 		"""
 		# Count reads in spike-in & inputs for normalization
 		spikeCount=$(samtools view -c {input.spike})
-		spikeScale=$(echo "scale=5; 10000/${{spikeCount}}/" | bc)
+		spikeScale=$(echo "scale=5; 10000/${{spikeCount}}" | bc)
 
 		bedtools genomecov -i {input.ref} -bga -g {params.chromSize_Path} -scale ${{spikeScale}} > {output.spikeNorm}
 		"""
@@ -495,7 +500,10 @@ rule callThresholdPeaks:
 		"""
 		Rscript --vanilla scripts/callThresholdPeaks.R {input} {output}
 		"""
-	
+
+#-BEDPE specifies paired-end data, expected format is a 3 column bedfile - different from bedtools bedpe 
+# In paired-end mode macs does not build a shifting model to estimate fragment size, and instead uses actual fragment size from pe input
+# MN - I believe that means "--nomodel" is redundant but haven't rigorously tested
 rule callPeaks:
 	input:
 		'Bed/{sample}_{REFGENOME}_trim_q5_dupsRemoved_{fragType}.bed'
