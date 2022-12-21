@@ -14,10 +14,13 @@ set -euo pipefail
 # but the target prefixes are back to their native representation in the reference genome
 # NOTE: input bam file must be indexed
 
+# MJN 12/16/22 -- added filtering step to drop problematic high signal CnR regions
+
 
 bam=$1
 prefix=$2
 output=$3
+exlist=$4
 
 filtered_bam=$bam".filter"
 
@@ -25,7 +28,7 @@ chrs=$(samtools idxstats $bam | cut -f1 | grep $prefix)
 
 samtools view -b $bam $chrs > $filtered_bam
 
-samtools view -H $filtered_bam | sed -e "s/$prefix//" | samtools reheader - $filtered_bam > $output
+samtools view -H $filtered_bam | sed -e "s/$prefix//" | samtools reheader - $filtered_bam | bedtools intersect -a stdin -b $exlist -v > $output
 
 # Cleanup tmp file
 rm $filtered_bam

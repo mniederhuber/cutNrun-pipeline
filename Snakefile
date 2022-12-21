@@ -10,6 +10,7 @@ pool_basename_columns = config['poolBaseNameColumns']
 REFGENOME = config['refGenome']
 SPIKEGENOME = config['spikeGenome']
 REFGENOMEPATH = config['genome'][REFGENOME]['bowtie']
+EXCLUSIONPATH = config['genome'][REFGENOME]['exclusionList']
 controlDNAPath  = config['genome'][REFGENOME]['controlDNAPath']
 chromSize_Path  = config['genome'][REFGENOME]['chrSize']
 
@@ -249,6 +250,8 @@ rule convertToBam:
 		'Sam/{sample}_{species}_trim.sam'
 	output:
 		'Bam/{sample}_{species}_trim.bam'
+#	params:
+#		exlist = EXCLUSIONPATH
 	envmodules:
 		modules['samtoolsVer']
 	shell:
@@ -322,7 +325,7 @@ rule collect_genome_align_stats:
 		# it's typical to use @ in this context instead of /, but since
 		# I'm matching $, $@ is expanded by '' into ARGV, so can't use
 		# that either. I guess I could use "" since snakemake will eval
-		# first and no bash variable expansion will occurr, but I'll keep it this way in case this gets moved to a script somewhere.
+		# first and no bash variable expansion will occurr, but I'll keep it this way in case this gets moved ta script somewhere.
 
 
 
@@ -336,13 +339,16 @@ rule splitSpecies:
 	params:
 		#prefix = lambda wildcards : ["{}_".format(wildcards.species)]
 		prefix = ["{}_".format(species) for species in speciesList],
-		module = modules['samtoolsVer']
+		samtools = modules['samtoolsVer'],
+		bedtools = modules['bedtoolsVer'],
+		exlist = EXCLUSIONPATH
 	run:
 	    for prefix, output_bam in zip(params.prefix, output.bam):
 		    #print("prefix: {}, bam: {}".format(prefix, output_bam))
 		    #shell("module purge && module load {} && ".format(params.module))
-		    shell("module purge && module load {} && sh scripts/get_bam_reads_prefix.sh {} {} {}".format(params.module, input.bam, prefix, output_bam))
-		    shell("module purge && module load {} && samtools index {bam} {index}".format(params.module, bam = output_bam, index = output_bam + ".bai"))
+		    shell("module purge && module load {} {} && sh scripts/get_bam_reads_prefix.sh {} {} {} {}".format(params.samtools, params.bedtools, input.bam, prefix, output_bam, params.exlist))
+		    shell("module purge && module load {} && samtools index {bam} {index}".format(params.samtools, bam = output_bam, index = output_bam + ".bai"))
+
 		#TODO: IS SORT ORDER OF prefix and output preserved??? can I zip or do I need to do something more complex?
 		# - to test this, I included a print statement above
 		# - CONFIRMED: order is preserved based on speciesList order
@@ -374,9 +380,7 @@ rule nameSortBam:
 		"""
 		samtools sort -n {input} -o {output}
 		"""
-		
-#note that bedtools bamtobed produces a standard bedpe file with 6+ columns: chr, start, end, chr, start, end...
-#importantly, this differs than the expected "bedpe" format for macs, which is a 3 col file
+
 rule convertBamToBed:
 	input:
 		bam = 'Bam/{sample}_{species}_trim_q5_dupsRemoved_nameSorted.bam',
@@ -388,10 +392,7 @@ rule convertBamToBed:
 		"""
 		bedtools bamtobed -bedpe -i {input.bam} | sort -k 1,1 -k 2,2n > {output}
 		"""
-		
-#cut cols 1,2,6,7 = chr_1, start_1, end_2, fragment_id
-#pipe to awk, calculate fragment size ($3-$2) and return full line with frag size to output file
-#fragments are then split by fragment size based on this allFrags.bed output
+
 rule splitFragments:
 	input:
 		'Bed/{sample}_{REFGENOME}_trim_q5_dupsRemoved.bed'
@@ -403,7 +404,7 @@ rule splitFragments:
 		"fragment"
 	shell:
 		"""
-		cut -f 1,2,6,7 {input} | awk -v OFS='\t' '{{print $0, ($3-$2)}}' - > {output.allFrags}
+		cut -f 1,2,6,7 {input} | awk -F '\t' '{{print $0, ($3-$2)}}' - > {output.allFrags}
 		awk -v OFS='\t' '($5>20) && ($5<120) {{print $0}}' {output.allFrags} > {output.smallFrags}
 		awk -v OFS='\t' '($5>150) && ($5<700) {{print $0}}' {output.allFrags} > {output.bigFrags}
 		"""
@@ -451,7 +452,7 @@ rule makeSpikeNormFragmentBedGraphs:
 		"""
 		# Count reads in spike-in & inputs for normalization
 		spikeCount=$(samtools view -c {input.spike})
-		spikeScale=$(echo "scale=5; 10000/${{spikeCount}}" | bc)
+		spikeScale=$(echo "scale=5; 10000/${{spikeCount}}/" | bc)
 
 		bedtools genomecov -i {input.ref} -bga -g {params.chromSize_Path} -scale ${{spikeScale}} > {output.spikeNorm}
 		"""
@@ -500,10 +501,7 @@ rule callThresholdPeaks:
 		"""
 		Rscript --vanilla scripts/callThresholdPeaks.R {input} {output}
 		"""
-
-#-BEDPE specifies paired-end data, expected format is a 3 column bedfile - different from bedtools bedpe 
-# In paired-end mode macs does not build a shifting model to estimate fragment size, and instead uses actual fragment size from pe input
-# MN - I believe that means "--nomodel" is redundant but haven't rigorously tested
+	
 rule callPeaks:
 	input:
 		'Bed/{sample}_{REFGENOME}_trim_q5_dupsRemoved_{fragType}.bed'
@@ -516,7 +514,7 @@ rule callPeaks:
 		modules['macsVer']
 	shell:
 		"""
-		macs2 callpeak -f BEDPE -c {params.control} -n {params.prefix} -g 121400000 -t {input}  --nomodel --seed 123
+		macs2 callpeak -f BEDPE -n {params.prefix} -g 121400000 -t {input}  --nomodel --seed 123 --nolambda
 		"""
 
 rule qcReport:

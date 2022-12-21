@@ -19,6 +19,7 @@
 			"fasta" : "/proj/mckaylab/genomeFiles/dm6/dm6.fa",
 			"chrSize" : "/proj/mckaylab/genomeFiles/dm6/dm6_chromSizes.txt",
 			"controlDNAPath" : "/proj/mckaylab/genomeFiles/dm6/ControlGenomicDNA/ControlGenomicDNA_trim_q5_dupsRemoved.bed",
+			"exclusionList" : "/proj/mckaylab/genomeFiles/dm6/dm6-CnR-exclusionList/macs2-ex.bed",
 			"genomeSize" : 137547960
 		},
 		"ecoli" : { 
