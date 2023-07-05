@@ -6,3 +6,13 @@ sampleInfo.tsv
 poolSampleSheet.tsv
 sampleSheet.tsv
 cmu
+Bam/
+Bed/
+BigWig/
+Bowtie2Index/
+PCRdups/
+Peaks/
+Plots/
+Sam/
+Threshold_PeakCalls/
+multiqc_data/
