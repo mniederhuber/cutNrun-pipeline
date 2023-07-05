@@ -2,9 +2,6 @@
 *.swp
 .snakemake/
 __pycache__/
-sampleInfo.tsv
-poolSampleSheet.tsv
-sampleSheet.tsv
 cmu
 Bam/
 Bed/
