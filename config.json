@@ -5,7 +5,7 @@
 	"poolBaseNameColumns" : ["sample"],
 	"refGenome" : "dm6",
 	"spikeGenome" : ["sacCer3", "droYak2"],
-	"readLen" : 75,
+	"readLen" : 50,
 	"genome" : {
 		"dm3" : { 
 			"bowtie" : "/proj/mckaylab/genomeFiles/dm3/RefGenome/dm3",
