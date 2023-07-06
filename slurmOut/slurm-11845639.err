@@ -1,0 +1,93 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	markDups
+	1
+
+[Thu Jul  6 10:56:42 2023]
+rule markDups:
+    input: Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5.bam
+    output: Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsMarked.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_sorted.bam, PCRdups/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_PCR_duplicates
+    jobid: 0
+    wildcards: sample=yw-3LW-wing-ak27ac-pel-Rep1, species=dm6-sacCer3-droYak2
+
+Activating environment modules: picard/2.2.4
+[Thu Jul 06 10:56:45 EDT 2023] picard.sam.SortSam INPUT=Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5.bam OUTPUT=Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_sorted.bam SORT_ORDER=coordinate    VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jul 06 10:56:45 EDT 2023] Executing as mjn15@c0501.ll.unc.edu on Linux 4.18.0-348.2.1.el8_5.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_352-b08; Picard version: 2.2.4(920e3247c340720b009f2398c1b93cce132c9bed_1461793281) IntelDeflater
+INFO	2023-07-06 10:58:28	SortSam	Read    10,000,000 records.  Elapsed time: 00:01:42s.  Time for last 10,000,000:  102s.  Last read position: sacCer3_chrII:453,765
+INFO	2023-07-06 10:59:12	SortSam	Finished reading inputs, merging and writing to output now.
+INFO	2023-07-06 11:00:46	SortSam	Wrote    10,000,000 records from a sorting collection.  Elapsed time: 00:04:01s.  Time for last 10,000,000:   91s.  Last read position: dm6_chr3R:6,656,827
+[Thu Jul 06 11:01:27 EDT 2023] picard.sam.SortSam done. Elapsed time: 4.71 minutes.
+Runtime.totalMemory()=2076049408
+[Thu Jul 06 11:01:28 EDT 2023] picard.sam.markduplicates.MarkDuplicates TAGGING_POLICY=All INPUT=[Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_sorted.bam] OUTPUT=Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsMarked.bam METRICS_FILE=PCRdups/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_PCR_duplicates REMOVE_DUPLICATES=false ASSUME_SORTED=true    MAX_SEQUENCES_FOR_DISK_READ_ENDS_MAP=50000 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=8000 SORTING_COLLECTION_SIZE_RATIO=0.25 REMOVE_SEQUENCING_DUPLICATES=false DUPLICATE_SCORING_STRATEGY=SUM_OF_BASE_QUALITIES PROGRAM_RECORD_ID=MarkDuplicates PROGRAM_GROUP_NAME=MarkDuplicates READ_NAME_REGEX=<optimized capture of last three ':' separated fields as numeric values> OPTICAL_DUPLICATE_PIXEL_DISTANCE=100 VERBOSITY=INFO QUIET=false VALIDATION_STRINGENCY=STRICT COMPRESSION_LEVEL=5 MAX_RECORDS_IN_RAM=500000 CREATE_INDEX=false CREATE_MD5_FILE=false GA4GH_CLIENT_SECRETS=client_secrets.json
+[Thu Jul 06 11:01:28 EDT 2023] Executing as mjn15@c0501.ll.unc.edu on Linux 4.18.0-348.2.1.el8_5.x86_64 amd64; OpenJDK 64-Bit Server VM 1.8.0_352-b08; Picard version: 2.2.4(920e3247c340720b009f2398c1b93cce132c9bed_1461793281) IntelDeflater
+INFO	2023-07-06 11:01:28	MarkDuplicates	Start of doWork freeMemory: 2062982464; totalMemory: 2076049408; maxMemory: 8303607808
+INFO	2023-07-06 11:01:28	MarkDuplicates	Reading input file and constructing read end information.
+INFO	2023-07-06 11:01:28	MarkDuplicates	Will retain up to 31936953 data points before spilling to disk.
+INFO	2023-07-06 11:01:36	MarkDuplicates	Read     1,000,000 records.  Elapsed time: 00:00:08s.  Time for last 1,000,000:    8s.  Last read position: droYak2_chr3L:5,250,548
+INFO	2023-07-06 11:01:36	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2023-07-06 11:01:43	MarkDuplicates	Read     2,000,000 records.  Elapsed time: 00:00:14s.  Time for last 1,000,000:    6s.  Last read position: droYak2_chrU:21,683,789
+INFO	2023-07-06 11:01:43	MarkDuplicates	Tracking 6 as yet unmatched pairs. 6 records in RAM.
+INFO	2023-07-06 11:01:48	MarkDuplicates	Read     3,000,000 records.  Elapsed time: 00:00:20s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr2L:7,023,721
+INFO	2023-07-06 11:01:48	MarkDuplicates	Tracking 28 as yet unmatched pairs. 28 records in RAM.
+INFO	2023-07-06 11:01:54	MarkDuplicates	Read     4,000,000 records.  Elapsed time: 00:00:25s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr2L:17,597,404
+INFO	2023-07-06 11:01:54	MarkDuplicates	Tracking 2 as yet unmatched pairs. 2 records in RAM.
+INFO	2023-07-06 11:01:59	MarkDuplicates	Read     5,000,000 records.  Elapsed time: 00:00:30s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr2R:6,214,361
+INFO	2023-07-06 11:01:59	MarkDuplicates	Tracking 134 as yet unmatched pairs. 134 records in RAM.
+INFO	2023-07-06 11:02:05	MarkDuplicates	Read     6,000,000 records.  Elapsed time: 00:00:36s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr2R:16,068,027
+INFO	2023-07-06 11:02:05	MarkDuplicates	Tracking 4 as yet unmatched pairs. 4 records in RAM.
+INFO	2023-07-06 11:02:10	MarkDuplicates	Read     7,000,000 records.  Elapsed time: 00:00:42s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr3L:294,365
+INFO	2023-07-06 11:02:10	MarkDuplicates	Tracking 10 as yet unmatched pairs. 10 records in RAM.
+INFO	2023-07-06 11:02:16	MarkDuplicates	Read     8,000,000 records.  Elapsed time: 00:00:47s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr3L:10,562,851
+INFO	2023-07-06 11:02:16	MarkDuplicates	Tracking 14 as yet unmatched pairs. 14 records in RAM.
+INFO	2023-07-06 11:02:21	MarkDuplicates	Read     9,000,000 records.  Elapsed time: 00:00:52s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr3L:20,464,780
+INFO	2023-07-06 11:02:21	MarkDuplicates	Tracking 2 as yet unmatched pairs. 2 records in RAM.
+INFO	2023-07-06 11:02:26	MarkDuplicates	Read    10,000,000 records.  Elapsed time: 00:00:57s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr3R:6,656,827
+INFO	2023-07-06 11:02:26	MarkDuplicates	Tracking 2 as yet unmatched pairs. 2 records in RAM.
+INFO	2023-07-06 11:02:32	MarkDuplicates	Read    11,000,000 records.  Elapsed time: 00:01:03s.  Time for last 1,000,000:    5s.  Last read position: dm6_chr3R:16,866,789
+INFO	2023-07-06 11:02:32	MarkDuplicates	Tracking 2 as yet unmatched pairs. 2 records in RAM.
+INFO	2023-07-06 11:02:39	MarkDuplicates	Read    12,000,000 records.  Elapsed time: 00:01:10s.  Time for last 1,000,000:    7s.  Last read position: dm6_chr3R:27,203,438
+INFO	2023-07-06 11:02:39	MarkDuplicates	Tracking 0 as yet unmatched pairs. 0 records in RAM.
+INFO	2023-07-06 11:02:44	MarkDuplicates	Read    13,000,000 records.  Elapsed time: 00:01:15s.  Time for last 1,000,000:    4s.  Last read position: dm6_chrX:3,173,086
+INFO	2023-07-06 11:02:44	MarkDuplicates	Tracking 18 as yet unmatched pairs. 18 records in RAM.
+INFO	2023-07-06 11:02:49	MarkDuplicates	Read    14,000,000 records.  Elapsed time: 00:01:20s.  Time for last 1,000,000:    4s.  Last read position: dm6_chrX:18,406,125
+INFO	2023-07-06 11:02:49	MarkDuplicates	Tracking 4 as yet unmatched pairs. 4 records in RAM.
+INFO	2023-07-06 11:02:51	MarkDuplicates	Read 14460892 records. 0 pairs never matched.
+INFO	2023-07-06 11:02:54	MarkDuplicates	After buildSortedReadEndLists freeMemory: 2553796312; totalMemory: 4397322240; maxMemory: 8303607808
+INFO	2023-07-06 11:02:54	MarkDuplicates	Will retain up to 129743872 duplicate indices before spilling to disk.
+INFO	2023-07-06 11:02:55	MarkDuplicates	Traversing read pair information and detecting duplicates.
+INFO	2023-07-06 11:02:57	OpticalDuplicateFinder	Large duplicate set. size = 2091
+INFO	2023-07-06 11:02:58	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:16,396
+INFO	2023-07-06 11:02:58	OpticalDuplicateFinder	compared         2,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:15,121
+INFO	2023-07-06 11:02:58	OpticalDuplicateFinder	Large duplicate set. size = 1662
+INFO	2023-07-06 11:02:58	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:18,105
+INFO	2023-07-06 11:02:58	OpticalDuplicateFinder	Large duplicate set. size = 4027
+INFO	2023-07-06 11:02:58	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:26,892
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	compared         2,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:18,412
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	compared         3,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:20,717
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	compared         4,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:27,778
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	Large duplicate set. size = 3403
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:31,901
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	compared         2,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:21,594
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	compared         3,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:13,810
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	Large duplicate set. size = 1120
+INFO	2023-07-06 11:02:59	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:16,848
+INFO	2023-07-06 11:03:02	OpticalDuplicateFinder	Large duplicate set. size = 1068
+INFO	2023-07-06 11:03:02	OpticalDuplicateFinder	compared         1,000 ReadEnds to others.  Elapsed time: 00:00:00s.  Time for last 1,000:    0s.  Last read position: 0:16,920
+INFO	2023-07-06 11:03:02	MarkDuplicates	Traversing fragment information and detecting duplicates.
+INFO	2023-07-06 11:03:05	MarkDuplicates	Sorting list of duplicate records.
+INFO	2023-07-06 11:03:06	MarkDuplicates	After generateDuplicateIndexes freeMemory: 2916558528; totalMemory: 5021523968; maxMemory: 8303607808
+INFO	2023-07-06 11:03:06	MarkDuplicates	Marking 8555208 records as duplicates.
+INFO	2023-07-06 11:03:06	MarkDuplicates	Found 18821 optical duplicate clusters.
+INFO	2023-07-06 11:03:06	MarkDuplicates	Reads are assumed to be ordered by: coordinate
+INFO	2023-07-06 11:05:26	MarkDuplicates	Written    10,000,000 records.  Elapsed time: 00:02:20s.  Time for last 10,000,000:  140s.  Last read position: dm6_chr3R:6,656,827
+INFO	2023-07-06 11:06:31	MarkDuplicates	Before output close freeMemory: 3953594064; totalMemory: 5021523968; maxMemory: 8303607808
+INFO	2023-07-06 11:06:31	MarkDuplicates	After output close freeMemory: 3953593008; totalMemory: 5021523968; maxMemory: 8303607808
+[Thu Jul 06 11:06:31 EDT 2023] picard.sam.markduplicates.MarkDuplicates done. Elapsed time: 5.06 minutes.
+Runtime.totalMemory()=5021523968
+[Thu Jul  6 11:06:32 2023]
+Finished job 0.
+1 of 1 steps (100%) done

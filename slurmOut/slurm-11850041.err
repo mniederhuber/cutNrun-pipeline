@@ -1,0 +1,75 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job counts:
+	count	jobs
+	1	callPeaks
+	1
+
+[Thu Jul  6 11:50:13 2023]
+rule callPeaks:
+    input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bed
+    output: Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak
+    jobid: 0
+    wildcards: REFGENOME=dm6, fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep2
+
+Activating environment modules: macs/2.1.2
+INFO  @ Thu, 06 Jul 2023 11:50:15: 
+# Command line: callpeak -f BEDPE -c /proj/mckaylab/genomeFiles/dm6/ControlGenomicDNA/ControlGenomicDNA_trim_q5_dupsRemoved.bed -n Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120 -g 121400000 -t Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bed --nomodel --seed 123
+# ARGUMENTS LIST:
+# name = Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120
+# format = BEDPE
+# ChIP-seq file = ['Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bed']
+# control file = ['/proj/mckaylab/genomeFiles/dm6/ControlGenomicDNA/ControlGenomicDNA_trim_q5_dupsRemoved.bed']
+# effective genome size = 1.21e+08
+# band width = 300
+# model fold = [5, 50]
+# qvalue cutoff = 5.00e-02
+# The maximum gap between significant sites is assigned as the read length/tag size.
+# The minimum length of peaks is assigned as the predicted fragment length "d".
+# Larger dataset will be scaled towards smaller dataset.
+# Range for calculating regional lambda is: 1000 bps and 10000 bps
+# Broad region calling is off
+# Paired-End mode is on
+ 
+INFO  @ Thu, 06 Jul 2023 11:50:15: #1 read fragment files... 
+INFO  @ Thu, 06 Jul 2023 11:50:15: #1 read treatment fragments... 
+INFO  @ Thu, 06 Jul 2023 11:50:18:  1000000 
+INFO  @ Thu, 06 Jul 2023 11:50:20: #1.2 read input fragments... 
+INFO  @ Thu, 06 Jul 2023 11:50:22:  1000000 
+INFO  @ Thu, 06 Jul 2023 11:50:25:  2000000 
+INFO  @ Thu, 06 Jul 2023 11:50:28:  3000000 
+INFO  @ Thu, 06 Jul 2023 11:50:31:  4000000 
+INFO  @ Thu, 06 Jul 2023 11:50:34:  5000000 
+INFO  @ Thu, 06 Jul 2023 11:50:37:  6000000 
+INFO  @ Thu, 06 Jul 2023 11:50:39:  7000000 
+INFO  @ Thu, 06 Jul 2023 11:50:42:  8000000 
+INFO  @ Thu, 06 Jul 2023 11:50:45:  9000000 
+INFO  @ Thu, 06 Jul 2023 11:50:48:  10000000 
+INFO  @ Thu, 06 Jul 2023 11:50:59: #1 mean fragment size is determined as 93.4 bp from treatment 
+INFO  @ Thu, 06 Jul 2023 11:50:59: #1 note: mean fragment size in control is 35.0 bp -- value ignored 
+INFO  @ Thu, 06 Jul 2023 11:50:59: #1 fragment size = 93.4 
+INFO  @ Thu, 06 Jul 2023 11:50:59: #1  total fragments in treatment: 1190059 
+INFO  @ Thu, 06 Jul 2023 11:50:59: #1 user defined the maximum fragments... 
+INFO  @ Thu, 06 Jul 2023 11:50:59: #1 filter out redundant fragments by allowing at most 1 identical fragment(s) 
+INFO  @ Thu, 06 Jul 2023 11:51:05: #1  fragments after filtering in treatment: 1186953 
+INFO  @ Thu, 06 Jul 2023 11:51:05: #1  Redundant rate of treatment: 0.00 
+INFO  @ Thu, 06 Jul 2023 11:51:05: #1  total fragments in control: 10595298 
+INFO  @ Thu, 06 Jul 2023 11:51:05: #1 user defined the maximum fragments... 
+INFO  @ Thu, 06 Jul 2023 11:51:05: #1 filter out redundant fragments by allowing at most 1 identical fragment(s) 
+INFO  @ Thu, 06 Jul 2023 11:51:54: #1  fragments after filtering in control: 10336068 
+INFO  @ Thu, 06 Jul 2023 11:51:54: #1  Redundant rate of control: 0.02 
+INFO  @ Thu, 06 Jul 2023 11:51:54: #1 finished! 
+INFO  @ Thu, 06 Jul 2023 11:51:54: #2 Build Peak Model... 
+INFO  @ Thu, 06 Jul 2023 11:51:54: #2 Skipped... 
+INFO  @ Thu, 06 Jul 2023 11:51:54: #3 Call peaks... 
+INFO  @ Thu, 06 Jul 2023 11:51:54: #3 Pre-compute pvalue-qvalue table... 
+INFO  @ Thu, 06 Jul 2023 11:54:22: #3 Call peaks for each chromosome... 
+INFO  @ Thu, 06 Jul 2023 11:55:55: #4 Write output xls file... Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_peaks.xls 
+INFO  @ Thu, 06 Jul 2023 11:55:56: #4 Write peak in narrowPeak format file... Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak 
+INFO  @ Thu, 06 Jul 2023 11:55:56: #4 Write summits bed file... Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_summits.bed 
+INFO  @ Thu, 06 Jul 2023 11:55:56: Done! 
+[Thu Jul  6 11:55:56 2023]
+Finished job 0.
+1 of 1 steps (100%) done
