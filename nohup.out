@@ -2153,3 +2153,2092 @@ localrule all:
 Finished job 0.
 155 of 155 steps (100%) done
 Complete log: /work/users/m/j/mjn15/H3K27ac_CnR/cutNrun-pipeline/.snakemake/log/2023-04-18T121253.643327.snakemake.log
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 500
+Job counts:
+	count	jobs
+	1	all
+	23	callThresholdPeaks
+	11	convertToBigWig
+	3	makeFragmentBedGraphs
+	5	makeSpikeNormFragmentBedGraphs
+	6	zNormBigWig
+	49
+[Wed Jul  5 14:15:55 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:55 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 57
+        wildcards: REFGENOME=dm6, fragType=150to700_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+Submitted group job 506d1963-744b-5e67-9244-5ebfa23fe11c with external jobid 'Submitted batch job 11765995'.
+[Wed Jul  5 14:15:55 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:55 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed
+        jobid: 59
+        wildcards: REFGENOME=dm6, fragType=150to700_rpgcNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+Submitted group job e11c0b3a-d1e5-5998-9fff-d2dc7544359c with external jobid 'Submitted batch job 11765997'.
+[Wed Jul  5 14:15:55 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:55 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.zNorm, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw
+        jobid: 22
+        wildcards: REFGENOME=dm6, fragType=150to700, sample=yw-3LW-wing-ak27ac-pel-Rep1
+
+Submitted group job 3b3cb3b7-c642-51e2-8bbe-238e92b2da10 with external jobid 'Submitted batch job 11765999'.
+[Wed Jul  5 14:15:55 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:55 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam, Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        jobid: 27
+        wildcards: spikeGenome=sacCer3, REFGENOME=dm6, fragType=allFrags, sample=yw-3LW-wing-ak27ac-sup-Rep1
+
+Submitted group job 1dd73bc7-8a0e-5c21-a1d7-d0a149b5336e with external jobid 'Submitted batch job 11766001'.
+[Wed Jul  5 14:15:55 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:55 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: Logs/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.zNorm, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw
+        jobid: 114
+        wildcards: REFGENOME=dm6, fragType=150to700, sample=yw-3LW-wing-ak27ac-sup-Rep1
+
+Submitted group job 608afe38-22ba-5573-ae81-49a48f7aa835 with external jobid 'Submitted batch job 11766003'.
+[Wed Jul  5 14:15:55 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:55 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg
+        jobid: 83
+        wildcards: REFGENOME=dm6, fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep1
+
+Submitted group job 8e57dae1-2024-5232-9662-97f36d8a05d9 with external jobid 'Submitted batch job 11766006'.
+[Wed Jul  5 14:15:55 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:55 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed
+        jobid: 110
+        wildcards: REFGENOME=dm6, fragType=150to70, sample=yw-3LW-wing-ak27ac-pel-Rep2, normType=0
+
+Submitted group job 0d6fad1f-fe04-5bbe-a03c-df1f1c15e282 with external jobid 'Submitted batch job 11766008'.
+[Wed Jul  5 14:15:56 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:56 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam, Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        jobid: 9
+        wildcards: spikeGenome=sacCer3, REFGENOME=dm6, fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep1
+
+Submitted group job 709d0741-0b4c-566a-a2f1-e11144059aad with external jobid 'Submitted batch job 11766010'.
+[Wed Jul  5 14:15:56 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:56 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam, Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        jobid: 72
+        wildcards: spikeGenome=droYak2, REFGENOME=dm6, fragType=150to700, sample=yw-3LW-wing-ak27ac-sup-Rep1
+
+Submitted group job a81d1898-3d25-5c4b-b49f-7b68679972b3 with external jobid 'Submitted batch job 11766012'.
+[Wed Jul  5 14:15:56 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:56 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg
+        jobid: 123
+        wildcards: REFGENOME=dm6, fragType=allFrags, sample=yw-3LW-wing-ak27ac-pel-Rep1
+
+Submitted group job 7ca5abbc-63d0-5da6-9102-1c4b01f03686 with external jobid 'Submitted batch job 11766014'.
+[Wed Jul  5 14:15:56 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:56 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam, Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        jobid: 115
+        wildcards: spikeGenome=droYak2, REFGENOME=dm6, fragType=150to700, sample=yw-3LW-wing-ak27ac-pel-Rep1
+
+Submitted group job 725f6b73-ad1b-5d96-ad71-f248c2d9125a with external jobid 'Submitted batch job 11766020'.
+[Wed Jul  5 14:15:57 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:57 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 64
+        wildcards: REFGENOME=dm6, fragType=20to120_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep2, normType=m
+
+Submitted group job b18b432a-539c-5bf7-b384-d4bc22f70ae1 with external jobid 'Submitted batch job 11766022'.
+[Wed Jul  5 14:15:57 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:57 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed
+        jobid: 53
+        wildcards: REFGENOME=dm6, fragType=allFrags_rpgcNor, sample=yw-3LW-wing-ak27ac-pel-Rep2, normType=m
+
+Submitted group job ad35c614-f960-5cf0-ac15-f1ee714b5764 with external jobid 'Submitted batch job 11766024'.
+[Wed Jul  5 14:15:57 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:57 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed
+        jobid: 62
+        wildcards: REFGENOME=dm6, fragType=20to120_rpgcNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+Submitted group job 250a1fb0-deda-590b-a7d2-21a129163d3b with external jobid 'Submitted batch job 11766026'.
+[Wed Jul  5 14:15:57 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:57 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Logs/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.zNorm, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw
+        jobid: 144
+        wildcards: REFGENOME=dm6, fragType=allFrags, sample=yw-3LW-wing-ak27ac-pel-Rep2
+
+Submitted group job a19827d1-a878-5a22-a3d6-ea80cc9ea739 with external jobid 'Submitted batch job 11766028'.
+[Wed Jul  5 14:15:57 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:57 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 38
+        wildcards: REFGENOME=dm6, fragType=allFrags_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+Submitted group job bad884bd-67bb-5901-969f-6fa658e0ca03 with external jobid 'Submitted batch job 11766030'.
+[Wed Jul  5 14:15:57 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:57 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed
+        jobid: 88
+        wildcards: REFGENOME=dm6, fragType=allFrag, sample=yw-3LW-wing-ak27ac-pel-Rep2, normType=s
+
+Submitted group job 34db5f83-6ce2-533d-ab98-b501ecde20be with external jobid 'Submitted batch job 11766032'.
+[Wed Jul  5 14:15:58 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:58 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg
+        jobid: 20
+        wildcards: REFGENOME=dm6, fragType=allFrags, sample=yw-3LW-wing-ak27ac-sup-Rep1
+
+Submitted group job 9ea9fc87-8cf0-55be-9c32-b454e92e7c6d with external jobid 'Submitted batch job 11766035'.
+[Wed Jul  5 14:15:58 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:58 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 143
+        wildcards: REFGENOME=dm6, fragType=20to120_droYak2-spikeNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+Submitted group job a0631189-a02e-539e-980e-ca72ee2aef96 with external jobid 'Submitted batch job 11766037'.
+[Wed Jul  5 14:15:58 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:58 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 4
+        wildcards: REFGENOME=dm6, fragType=allFrags_droYak2-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+Submitted group job d3c6ba57-88a1-5c0c-b373-d8f3260f65bb with external jobid 'Submitted batch job 11766039'.
+[Wed Jul  5 14:15:58 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:58 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam, Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        jobid: 63
+        wildcards: spikeGenome=sacCer3, REFGENOME=dm6, fragType=20to120, sample=yw-3LW-wing-ak27ac-sup-Rep1
+
+Submitted group job 9db58465-b5d3-5c23-a9e1-c1e5829f8d01 with external jobid 'Submitted batch job 11766041'.
+[Wed Jul  5 14:15:59 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:59 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed
+        jobid: 128
+        wildcards: REFGENOME=dm6, fragType=150to70, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=0
+
+Submitted group job f1033d69-6f12-5563-87b8-752291b75472 with external jobid 'Submitted batch job 11766043'.
+[Wed Jul  5 14:15:59 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:15:59 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 8
+        wildcards: REFGENOME=dm6, fragType=20to120_droYak2-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep2, normType=m
+
+Submitted group job a6ec4e09-8f43-5de2-a7d5-268a35ad1223 with external jobid 'Submitted batch job 11766045'.
+[Wed Jul  5 14:17:05 2023]
+Finished job 57.
+1 of 49 steps (2%) done
+[Wed Jul  5 14:17:05 2023]
+Finished job 22.
+2 of 49 steps (4%) done
+[Wed Jul  5 14:17:05 2023]
+Finished job 83.
+3 of 49 steps (6%) done
+[Wed Jul  5 14:17:05 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:05 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed
+        jobid: 39
+        wildcards: REFGENOME=dm6, fragType=20to12, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=0
+
+
+    [Wed Jul  5 14:17:05 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw
+        jobid: 18
+        wildcards: REFGENOME=dm6, fragType=20to12, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=0
+
+[Wed Jul  5 14:17:05 2023]
+Finished job 9.
+4 of 49 steps (8%) done
+Submitted group job 2c4159fc-d24e-59e6-9fb6-08ce52244f33 with external jobid 'Submitted batch job 11767420'.
+[Wed Jul  5 14:17:05 2023]
+Finished job 72.
+5 of 49 steps (10%) done
+[Wed Jul  5 14:17:05 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:05 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed
+        jobid: 74
+        wildcards: REFGENOME=dm6, fragType=20to120_rpgcNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:05 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        jobid: 82
+        wildcards: REFGENOME=dm6, fragType=20to120_rpgcNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:05 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.zNorm, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw
+        jobid: 99
+        wildcards: REFGENOME=dm6, fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep1
+
+Submitted group job 6bd2ff95-0498-5cf5-a4e3-58e69e3a3187 with external jobid 'Submitted batch job 11767425'.
+[Wed Jul  5 14:17:05 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:05 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 13
+        wildcards: REFGENOME=dm6, fragType=150to700_droYak2-spikeNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:05 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        jobid: 5
+        wildcards: REFGENOME=dm6, fragType=150to700_droYak2-spikeNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+Submitted group job 95aa3720-1e4a-5ee1-ab89-e28f43e2d9ae with external jobid 'Submitted batch job 11767428'.
+[Wed Jul  5 14:17:05 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:05 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 43
+        wildcards: REFGENOME=dm6, fragType=20to120_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:05 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        jobid: 140
+        wildcards: REFGENOME=dm6, fragType=20to120_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+Submitted group job 6bc35702-9b4e-5ad6-aae9-397efa059dc3 with external jobid 'Submitted batch job 11767430'.
+[Wed Jul  5 14:17:06 2023]
+Finished job 115.
+6 of 49 steps (12%) done
+[Wed Jul  5 14:17:06 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:06 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 133
+        wildcards: REFGENOME=dm6, fragType=150to700_droYak2-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:06 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        jobid: 145
+        wildcards: REFGENOME=dm6, fragType=150to700_droYak2-spikeNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+Submitted group job 6936fe68-7e62-5df4-9ae4-02129c550faf with external jobid 'Submitted batch job 11767451'.
+[Wed Jul  5 14:17:06 2023]
+Finished job 143.
+7 of 49 steps (14%) done
+[Wed Jul  5 14:17:06 2023]
+Finished job 4.
+8 of 49 steps (16%) done
+[Wed Jul  5 14:17:07 2023]
+Finished job 63.
+9 of 49 steps (18%) done
+[Wed Jul  5 14:17:07 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:07 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 11
+        wildcards: REFGENOME=dm6, fragType=20to120_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:07 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        jobid: 1
+        wildcards: REFGENOME=dm6, fragType=20to120_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+[Wed Jul  5 14:17:07 2023]
+Finished job 8.
+10 of 49 steps (20%) done
+Submitted group job d655ea6d-2adf-54ec-9640-5f9861d83768 with external jobid 'Submitted batch job 11767477'.
+[Wed Jul  5 14:17:17 2023]
+Finished job 59.
+11 of 49 steps (22%) done
+[Wed Jul  5 14:17:17 2023]
+Finished job 27.
+12 of 49 steps (24%) done
+[Wed Jul  5 14:17:17 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:17 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 105
+        wildcards: REFGENOME=dm6, fragType=allFrags_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:17 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        jobid: 92
+        wildcards: REFGENOME=dm6, fragType=allFrags_sacCer3-spikeNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+[Wed Jul  5 14:17:17 2023]
+Finished job 110.
+13 of 49 steps (27%) done
+Submitted group job e716adc6-5a2c-5dd8-a6f8-b3d50d55c2c3 with external jobid 'Submitted batch job 11767776'.
+[Wed Jul  5 14:17:18 2023]
+Finished job 64.
+14 of 49 steps (29%) done
+[Wed Jul  5 14:17:18 2023]
+Finished job 53.
+15 of 49 steps (31%) done
+[Wed Jul  5 14:17:18 2023]
+Finished job 144.
+16 of 49 steps (33%) done
+[Wed Jul  5 14:17:18 2023]
+Finished job 38.
+17 of 49 steps (35%) done
+[Wed Jul  5 14:17:18 2023]
+Finished job 128.
+18 of 49 steps (37%) done
+[Wed Jul  5 14:17:28 2023]
+Finished job 114.
+19 of 49 steps (39%) done
+[Wed Jul  5 14:17:28 2023]
+Finished job 123.
+20 of 49 steps (41%) done
+[Wed Jul  5 14:17:28 2023]
+Finished job 62.
+21 of 49 steps (43%) done
+[Wed Jul  5 14:17:28 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:28 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed
+        jobid: 17
+        wildcards: REFGENOME=dm6, fragType=allFrag, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=s
+
+
+    [Wed Jul  5 14:17:28 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        jobid: 29
+        wildcards: REFGENOME=dm6, fragType=allFrag, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=s
+
+Submitted group job 22fbef1f-69da-5f05-abdc-49adbaf351e7 with external jobid 'Submitted batch job 11768075'.
+[Wed Jul  5 14:17:28 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:28 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed
+        jobid: 118
+        wildcards: REFGENOME=dm6, fragType=allFrags_rpgcNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:28 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        jobid: 127
+        wildcards: REFGENOME=dm6, fragType=allFrags_rpgcNor, sample=yw-3LW-wing-ak27ac-pel-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:28 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.zNorm, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw
+        jobid: 132
+        wildcards: REFGENOME=dm6, fragType=allFrags, sample=yw-3LW-wing-ak27ac-pel-Rep1
+
+Submitted group job e4c90a84-19cb-51c8-8ed4-4cde867a4a3f with external jobid 'Submitted batch job 11768077'.
+[Wed Jul  5 14:17:29 2023]
+Finished job 20.
+22 of 49 steps (45%) done
+[Wed Jul  5 14:17:29 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:29 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed
+        jobid: 125
+        wildcards: REFGENOME=dm6, fragType=allFrag, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=s
+
+
+    [Wed Jul  5 14:17:29 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        jobid: 112
+        wildcards: REFGENOME=dm6, fragType=allFrag, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=s
+
+Submitted group job 90ec941f-80d2-5736-a86f-7c4115a3d718 with external jobid 'Submitted batch job 11768086'.
+[Wed Jul  5 14:17:29 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:17:29 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed
+        jobid: 35
+        wildcards: REFGENOME=dm6, fragType=allFrags_rpgcNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:29 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        jobid: 24
+        wildcards: REFGENOME=dm6, fragType=allFrags_rpgcNor, sample=yw-3LW-wing-ak27ac-sup-Rep1, normType=m
+
+
+    [Wed Jul  5 14:17:29 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Logs/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.zNorm, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw
+        jobid: 14
+        wildcards: REFGENOME=dm6, fragType=allFrags, sample=yw-3LW-wing-ak27ac-sup-Rep1
+
+Submitted group job a9a7b719-9228-565d-a3e1-26d8fb0792b2 with external jobid 'Submitted batch job 11768088'.
+[Wed Jul  5 14:17:39 2023]
+Finished job 88.
+23 of 49 steps (47%) done
+[Wed Jul  5 14:18:12 2023]
+Finished job 92.
+[Wed Jul  5 14:18:12 2023]
+Finished job 105.
+25 of 49 steps (51%) done
+[Wed Jul  5 14:18:12 2023]
+Finished job 18.
+[Wed Jul  5 14:18:12 2023]
+Finished job 39.
+27 of 49 steps (55%) done
+[Wed Jul  5 14:18:12 2023]
+Finished job 82.
+[Wed Jul  5 14:18:12 2023]
+Finished job 99.
+[Wed Jul  5 14:18:12 2023]
+Finished job 74.
+30 of 49 steps (61%) done
+[Wed Jul  5 14:18:12 2023]
+Finished job 5.
+[Wed Jul  5 14:18:12 2023]
+Finished job 13.
+32 of 49 steps (65%) done
+[Wed Jul  5 14:18:12 2023]
+Finished job 140.
+[Wed Jul  5 14:18:12 2023]
+Finished job 43.
+34 of 49 steps (69%) done
+[Wed Jul  5 14:18:12 2023]
+Finished job 145.
+[Wed Jul  5 14:18:12 2023]
+Finished job 133.
+36 of 49 steps (73%) done
+[Wed Jul  5 14:18:12 2023]
+Finished job 1.
+[Wed Jul  5 14:18:12 2023]
+Finished job 11.
+38 of 49 steps (78%) done
+[Wed Jul  5 14:19:23 2023]
+Finished job 29.
+[Wed Jul  5 14:19:23 2023]
+Finished job 17.
+40 of 49 steps (82%) done
+[Wed Jul  5 14:19:23 2023]
+Finished job 112.
+[Wed Jul  5 14:19:23 2023]
+Finished job 125.
+42 of 49 steps (86%) done
+[Wed Jul  5 14:19:53 2023]
+Finished job 127.
+[Wed Jul  5 14:19:53 2023]
+Finished job 118.
+[Wed Jul  5 14:19:53 2023]
+Finished job 132.
+45 of 49 steps (92%) done
+[Wed Jul  5 14:19:53 2023]
+Finished job 24.
+[Wed Jul  5 14:19:53 2023]
+Finished job 14.
+[Wed Jul  5 14:19:53 2023]
+Finished job 35.
+48 of 49 steps (98%) done
+
+[Wed Jul  5 14:19:54 2023]
+localrule all:
+    input: Fastq/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-pel-Rep1_R2_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-sup-Rep1_R2_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-pel-Rep2_R2_trim.fastq.gz, Sam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim.sam, Sam/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim.sam, Sam/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim.sam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep2_sacCer3_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep2_sacCer3_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep2_droYak2_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep2_droYak2_trim_q5_dupsRemoved.bam.bai, Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved_genomeStats.tsv, Logs/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved_genomeStats.tsv, Logs/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim_q5_dupsRemoved_genomeStats.tsv, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw, Peaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_peaks.narrowPeak, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed, FastQC/yw-3LW-wing-ak27ac-pel-Rep1_R1_fastqc.html, FastQC/yw-3LW-wing-ak27ac-sup-Rep1_R1_fastqc.html, FastQC/yw-3LW-wing-ak27ac-pel-Rep2_R1_fastqc.html, FastQC/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim_fastqc.html, FastQC/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim_fastqc.html, FastQC/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim_fastqc.html, FQscreen/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim_screen.txt, FQscreen/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim_screen.txt, FQscreen/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim_screen.txt, FQscreen/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim_screen.html, FQscreen/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim_screen.html, FQscreen/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim_screen.html, multiqc_report.html, Plots/FragDistInPeaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_allFrags_fragDistPlot.png, Plots/FragDistInPeaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_allFrags_fragDistPlot.png, Plots/FragDistInPeaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_allFrags_fragDistPlot.png, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim.tsv, AlignmentStats/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5.tsv, AlignmentStats/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim_q5.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim_q5.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved.tsv, AlignmentStats/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim_q5_dupsRemoved.tsv
+    jobid: 0
+
+[Wed Jul  5 14:19:54 2023]
+Finished job 0.
+49 of 49 steps (100%) done
+Complete log: /work/users/m/j/mjn15/H3K27ac_CnR/cutNrun-pipeline/.snakemake/log/2023-07-05T141552.433706.snakemake.log
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 500
+Job counts:
+	count	jobs
+	1	all
+	36	callThresholdPeaks
+	36	convertToBigWig
+	9	makeFragmentBedGraphs
+	18	makeSpikeNormFragmentBedGraphs
+	9	zNormBigWig
+	109
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg
+        jobid: 118
+        wildcards: fragType=20to120, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job e69094a4-28a4-5fe5-875f-4143e4fa5af5 with external jobid 'Submitted batch job 11779925'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed, Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        jobid: 80
+        wildcards: fragType=20to120, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 821ed1f3-1826-56fc-9cfb-1cbba91a47b8 with external jobid 'Submitted batch job 11779927'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg
+        jobid: 60
+        wildcards: fragType=150to700, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 803b3877-0b42-5add-a518-e48e775480b2 with external jobid 'Submitted batch job 11779929'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        jobid: 97
+        wildcards: fragType=150to700, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 14fd4db1-b655-56dd-b754-772054d15681 with external jobid 'Submitted batch job 11779931'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed, Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        jobid: 46
+        wildcards: fragType=150to700, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job d4a45a63-f4f9-5f28-8f6a-d30c436085f0 with external jobid 'Submitted batch job 11779933'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        jobid: 52
+        wildcards: fragType=20to120, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 499ddce7-aaea-55c4-b9cf-2e18d9e6ceea with external jobid 'Submitted batch job 11779935'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg
+        jobid: 84
+        wildcards: fragType=150to700, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 82bc4ee2-3a41-58a7-ba78-b63281b27f4f with external jobid 'Submitted batch job 11779937'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg
+        jobid: 6
+        wildcards: fragType=allFrags, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job d2e4dd36-14a6-5506-b5dd-c99749b79f3b with external jobid 'Submitted batch job 11779939'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bg
+        jobid: 116
+        wildcards: fragType=150to700, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 8e972c80-3d0e-5ad9-b9c7-2b4d0b6cbd48 with external jobid 'Submitted batch job 11779940'.
+[Wed Jul  5 14:27:50 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:50 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep2_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        jobid: 128
+        wildcards: fragType=20to120, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job f1033d69-6f12-5563-87b8-752291b75472 with external jobid 'Submitted batch job 11779942'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg
+        jobid: 122
+        wildcards: fragType=allFrags, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job bb907361-b8fb-5440-9325-88214734b646 with external jobid 'Submitted batch job 11779966'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg
+        jobid: 74
+        wildcards: fragType=150to700, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 359aa636-6eba-5413-980a-9ab627c85de4 with external jobid 'Submitted batch job 11779968'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg
+        jobid: 112
+        wildcards: fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 6ca94ceb-ebae-50e1-ab42-d4cdd1e91e83 with external jobid 'Submitted batch job 11779970'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg
+        jobid: 20
+        wildcards: fragType=allFrags, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 9ea9fc87-8cf0-55be-9c32-b454e92e7c6d with external jobid 'Submitted batch job 11779972'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed, Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        jobid: 39
+        wildcards: fragType=allFrags, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 4556b568-c5ea-5ed3-9c1c-46a9cfdd9eba with external jobid 'Submitted batch job 11779974'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        jobid: 111
+        wildcards: fragType=allFrags, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 3ccec0d7-3184-52aa-83fd-b8d2e1125639 with external jobid 'Submitted batch job 11779976'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep2_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg
+        jobid: 30
+        wildcards: fragType=150to700, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job b66423b3-ecb8-5f2e-ae33-255cd3f5fa8a with external jobid 'Submitted batch job 11779978'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bg
+        jobid: 99
+        wildcards: fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 8c158261-1d43-54d0-8029-4b0588e2fd6d with external jobid 'Submitted batch job 11779981'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg
+        jobid: 22
+        wildcards: fragType=20to120, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 3b3cb3b7-c642-51e2-8bbe-238e92b2da10 with external jobid 'Submitted batch job 11779983'.
+[Wed Jul  5 14:27:51 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:51 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bed, Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg
+        jobid: 77
+        wildcards: fragType=150to700, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job c8ae353a-49b9-5724-ab89-d41c86595ad3 with external jobid 'Submitted batch job 11779985'.
+[Wed Jul  5 14:27:52 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:52 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bed, Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg
+        jobid: 9
+        wildcards: fragType=20to120, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 709d0741-0b4c-566a-a2f1-e11144059aad with external jobid 'Submitted batch job 11780001'.
+[Wed Jul  5 14:27:52 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:52 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep2_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        jobid: 141
+        wildcards: fragType=150to700, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job bc690ad2-ad96-5be0-933b-7e0935218bcf with external jobid 'Submitted batch job 11780003'.
+[Wed Jul  5 14:27:52 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:52 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bed, Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg
+        jobid: 134
+        wildcards: fragType=allFrags, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 0f9e605e-fd25-5df5-9c96-897c76361fdc with external jobid 'Submitted batch job 11780005'.
+[Wed Jul  5 14:27:52 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:52 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep2_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg
+        jobid: 88
+        wildcards: fragType=20to120, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 34db5f83-6ce2-533d-ab98-b501ecde20be with external jobid 'Submitted batch job 11780007'.
+[Wed Jul  5 14:27:52 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:52 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep2_sacCer3_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        jobid: 79
+        wildcards: fragType=allFrags, spikeGenome=sacCer3, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job ca6a0326-365b-5e8c-90a4-d7b5ee1155ff with external jobid 'Submitted batch job 11780009'.
+[Wed Jul  5 14:27:52 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:52 2023]
+    rule makeSpikeNormFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bed, Bam/yw-3LW-wing-ak27ac-pel-Rep2_droYak2_trim_q5_dupsRemoved.bam
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg
+        jobid: 42
+        wildcards: fragType=allFrags, spikeGenome=droYak2, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 69504620-efb3-5042-8394-c60b53f5a895 with external jobid 'Submitted batch job 11780010'.
+[Wed Jul  5 14:27:52 2023]
+
+group job fragment (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:27:52 2023]
+    rule makeFragmentBedGraphs:
+        input: Bed/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bed
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bg
+        jobid: 62
+        wildcards: fragType=allFrags, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 250a1fb0-deda-590b-a7d2-21a129163d3b with external jobid 'Submitted batch job 11780012'.
+[Wed Jul  5 14:28:36 2023]
+Finished job 118.
+1 of 109 steps (0.92%) done
+[Wed Jul  5 14:28:36 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:36 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 109
+        wildcards: fragType=20to120_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:36 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        jobid: 7
+        wildcards: fragType=20to120_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+[Wed Jul  5 14:28:36 2023]
+Finished job 80.
+2 of 109 steps (2%) done
+Submitted group job 2a89de2c-97f0-5467-a0d4-7f40a357790d with external jobid 'Submitted batch job 11780773'.
+[Wed Jul  5 14:28:36 2023]
+Finished job 97.
+3 of 109 steps (3%) done
+[Wed Jul  5 14:28:36 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:36 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 70
+        wildcards: fragType=150to700_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:36 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        jobid: 98
+        wildcards: fragType=150to700_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+[Wed Jul  5 14:28:36 2023]
+Finished job 46.
+4 of 109 steps (4%) done
+Submitted group job 5206b41e-c612-5b58-9861-8652c3ec2d20 with external jobid 'Submitted batch job 11780775'.
+[Wed Jul  5 14:28:36 2023]
+Finished job 52.
+5 of 109 steps (5%) done
+[Wed Jul  5 14:28:36 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:36 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 16
+        wildcards: fragType=20to120_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:36 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        jobid: 107
+        wildcards: fragType=20to120_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+[Wed Jul  5 14:28:36 2023]
+Finished job 128.
+6 of 109 steps (6%) done
+Submitted group job 6e07993b-d3e4-5cf9-9d08-4944aae064ba with external jobid 'Submitted batch job 11780778'.
+[Wed Jul  5 14:28:36 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:36 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 31
+        wildcards: fragType=20to120_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:36 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        jobid: 34
+        wildcards: fragType=20to120_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 87f2f897-de9b-5765-a496-efa00223ecd0 with external jobid 'Submitted batch job 11780780'.
+[Wed Jul  5 14:28:36 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:36 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 104
+        wildcards: fragType=20to120_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:36 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw
+        jobid: 65
+        wildcards: fragType=20to120_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 0abf51d4-1d26-5bb8-9c76-535ba8130d2b with external jobid 'Submitted batch job 11780782'.
+[Wed Jul  5 14:28:36 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:36 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 76
+        wildcards: fragType=150to700_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:36 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        jobid: 48
+        wildcards: fragType=150to700_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 343c88a5-8fa4-5b2c-b889-77e5ace0cba6 with external jobid 'Submitted batch job 11780784'.
+[Wed Jul  5 14:28:37 2023]
+Finished job 74.
+7 of 109 steps (6%) done
+[Wed Jul  5 14:28:37 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:37 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 12
+        wildcards: fragType=150to700_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw
+        jobid: 32
+        wildcards: fragType=150to700_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+[Wed Jul  5 14:28:37 2023]
+Finished job 112.
+8 of 109 steps (7%) done
+[Wed Jul  5 14:28:37 2023]
+Finished job 30.
+9 of 109 steps (8%) done
+Submitted group job d07097a4-d118-5717-b0c5-6476b1dad269 with external jobid 'Submitted batch job 11780799'.
+[Wed Jul  5 14:28:37 2023]
+Finished job 22.
+10 of 109 steps (9%) done
+[Wed Jul  5 14:28:37 2023]
+Finished job 77.
+11 of 109 steps (10%) done
+[Wed Jul  5 14:28:37 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:37 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed
+        jobid: 138
+        wildcards: fragType=20to120_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        jobid: 44
+        wildcards: fragType=20to120_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.zNorm
+        jobid: 145
+        wildcards: fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 84b482c0-0a7f-547a-a98c-b51a857e0394 with external jobid 'Submitted batch job 11780802'.
+[Wed Jul  5 14:28:37 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:37 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 40
+        wildcards: fragType=150to700_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw
+        jobid: 72
+        wildcards: fragType=150to700_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 4a47bc91-7536-5ce3-9535-5efd9446354f with external jobid 'Submitted batch job 11780805'.
+[Wed Jul  5 14:28:37 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:37 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed
+        jobid: 93
+        wildcards: fragType=20to12, normType=0, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw
+        jobid: 59
+        wildcards: fragType=20to12, normType=0, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job cf94700c-ccd3-5644-b63e-6d81814fc364 with external jobid 'Submitted batch job 11780807'.
+[Wed Jul  5 14:28:37 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:37 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 23
+        wildcards: fragType=150to700_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw
+        jobid: 115
+        wildcards: fragType=150to700_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job f7be988a-e0f3-5c79-b48b-492db783c2e3 with external jobid 'Submitted batch job 11780809'.
+[Wed Jul  5 14:28:37 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:37 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed
+        jobid: 4
+        wildcards: fragType=20to120_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        jobid: 144
+        wildcards: fragType=20to120_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.zNorm
+        jobid: 24
+        wildcards: fragType=20to120, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 23a28114-5d22-57b7-a68c-1c443d2a888c with external jobid 'Submitted batch job 11780811'.
+[Wed Jul  5 14:28:37 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:37 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed
+        jobid: 50
+        wildcards: fragType=20to12, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:37 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw
+        jobid: 81
+        wildcards: fragType=20to12, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 28b6a135-5b93-5b52-8954-99e2858803d4 with external jobid 'Submitted batch job 11780814'.
+[Wed Jul  5 14:28:38 2023]
+Finished job 9.
+12 of 109 steps (11%) done
+[Wed Jul  5 14:28:38 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:38 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 36
+        wildcards: fragType=20to120_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:38 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        jobid: 136
+        wildcards: fragType=20to120_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 00622b40-062a-5763-86c1-7cac28034a1d with external jobid 'Submitted batch job 11780835'.
+[Wed Jul  5 14:28:38 2023]
+Finished job 88.
+13 of 109 steps (12%) done
+[Wed Jul  5 14:28:38 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:38 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 78
+        wildcards: fragType=20to120_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:38 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw
+        jobid: 41
+        wildcards: fragType=20to120_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job a8becd18-eca3-5558-83c0-4bbdbfc1e369 with external jobid 'Submitted batch job 11780838'.
+[Wed Jul  5 14:28:49 2023]
+Finished job 84.
+14 of 109 steps (13%) done
+[Wed Jul  5 14:28:49 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:49 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed
+        jobid: 91
+        wildcards: fragType=150to700_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:49 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        jobid: 35
+        wildcards: fragType=150to700_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:49 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.zNorm
+        jobid: 96
+        wildcards: fragType=150to700, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+[Wed Jul  5 14:28:49 2023]
+Finished job 6.
+15 of 109 steps (14%) done
+[Wed Jul  5 14:28:49 2023]
+Finished job 116.
+16 of 109 steps (15%) done
+Submitted group job c295ab16-53ff-51a5-adfc-77dcd7f31efc with external jobid 'Submitted batch job 11781136'.
+[Wed Jul  5 14:28:49 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:49 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed
+        jobid: 119
+        wildcards: fragType=150to70, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:49 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw
+        jobid: 17
+        wildcards: fragType=150to70, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job f6ee54be-d9b0-5444-886f-299b7b4d8b71 with external jobid 'Submitted batch job 11781138'.
+[Wed Jul  5 14:28:49 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:49 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed
+        jobid: 123
+        wildcards: fragType=150to70, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:49 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bw
+        jobid: 55
+        wildcards: fragType=150to70, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 89b5120b-c628-5678-a5ef-8fb1f6784a51 with external jobid 'Submitted batch job 11781141'.
+[Wed Jul  5 14:28:49 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:49 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed
+        jobid: 103
+        wildcards: fragType=150to700_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:49 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        jobid: 64
+        wildcards: fragType=150to700_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:49 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.zNorm
+        jobid: 142
+        wildcards: fragType=150to700, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job a81dd58d-18ab-55e5-b8f0-4322fc21dd94 with external jobid 'Submitted batch job 11781143'.
+[Wed Jul  5 14:28:49 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:49 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 121
+        wildcards: fragType=allFrags_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:49 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw
+        jobid: 10
+        wildcards: fragType=allFrags_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 6ced7ae1-3bb1-50ab-bc59-c1dba49d527d with external jobid 'Submitted batch job 11781145'.
+[Wed Jul  5 14:28:51 2023]
+Finished job 39.
+17 of 109 steps (16%) done
+[Wed Jul  5 14:28:51 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:51 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 3
+        wildcards: fragType=allFrags_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:51 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        jobid: 114
+        wildcards: fragType=allFrags_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+[Wed Jul  5 14:28:51 2023]
+Finished job 111.
+18 of 109 steps (17%) done
+Submitted group job 677a0fb2-ef77-5956-a166-229cdb65998e with external jobid 'Submitted batch job 11781209'.
+[Wed Jul  5 14:28:52 2023]
+Finished job 99.
+19 of 109 steps (17%) done
+[Wed Jul  5 14:28:52 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:52 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed
+        jobid: 100
+        wildcards: fragType=20to120_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:52 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        jobid: 86
+        wildcards: fragType=20to120_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:52 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.zNorm
+        jobid: 87
+        wildcards: fragType=20to120, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+[Wed Jul  5 14:28:52 2023]
+Finished job 141.
+20 of 109 steps (18%) done
+[Wed Jul  5 14:28:52 2023]
+Finished job 134.
+21 of 109 steps (19%) done
+[Wed Jul  5 14:28:52 2023]
+Finished job 79.
+22 of 109 steps (20%) done
+Submitted group job 5f22567f-4827-5bf8-a2ce-2b9ca06b1f47 with external jobid 'Submitted batch job 11781214'.
+[Wed Jul  5 14:28:52 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:52 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 56
+        wildcards: fragType=allFrags_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:52 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        jobid: 33
+        wildcards: fragType=allFrags_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 84fce33c-6bb0-5217-98f4-34c3148c65b5 with external jobid 'Submitted batch job 11781216'.
+[Wed Jul  5 14:28:52 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:52 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed
+        jobid: 15
+        wildcards: fragType=20to12, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:52 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bw
+        jobid: 137
+        wildcards: fragType=20to12, normType=0, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job fbae38fb-fe41-5270-a864-ece191e05068 with external jobid 'Submitted batch job 11781218'.
+[Wed Jul  5 14:28:52 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:52 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 19
+        wildcards: fragType=allFrags_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:52 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw
+        jobid: 129
+        wildcards: fragType=allFrags_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 0069ba2b-734a-5e00-9e46-b0a6ee60e3f8 with external jobid 'Submitted batch job 11781220'.
+[Wed Jul  5 14:28:52 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:52 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 27
+        wildcards: fragType=150to700_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:52 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw
+        jobid: 126
+        wildcards: fragType=150to700_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 134bb005-22ab-5ef9-a7bb-ea24c706099a with external jobid 'Submitted batch job 11781222'.
+[Wed Jul  5 14:28:52 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:28:52 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed
+        jobid: 49
+        wildcards: fragType=allFrags_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:28:52 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw
+        jobid: 71
+        wildcards: fragType=allFrags_sacCer3-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job d2204bd2-a125-5586-9a3b-54a990f2d6f6 with external jobid 'Submitted batch job 11781224'.
+[Wed Jul  5 14:29:04 2023]
+Finished job 60.
+23 of 109 steps (21%) done
+[Wed Jul  5 14:29:04 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:04 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed
+        jobid: 133
+        wildcards: fragType=150to70, normType=0, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw
+        jobid: 125
+        wildcards: fragType=150to70, normType=0, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+[Wed Jul  5 14:29:04 2023]
+Finished job 122.
+24 of 109 steps (22%) done
+[Wed Jul  5 14:29:04 2023]
+Finished job 20.
+25 of 109 steps (23%) done
+[Wed Jul  5 14:29:04 2023]
+Finished job 42.
+26 of 109 steps (24%) done
+Submitted group job ed377839-c6a8-5f35-85b1-3013ebfbc3ef with external jobid 'Submitted batch job 11781530'.
+[Wed Jul  5 14:29:04 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:04 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed
+        jobid: 28
+        wildcards: fragType=150to700_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        jobid: 106
+        wildcards: fragType=150to700_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.zNorm
+        jobid: 102
+        wildcards: fragType=150to700, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job bc540c8e-c9bd-5518-9aa8-3d120bda2bfd with external jobid 'Submitted batch job 11781533'.
+[Wed Jul  5 14:29:04 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:04 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed
+        jobid: 82
+        wildcards: fragType=allFrags_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw
+        jobid: 57
+        wildcards: fragType=allFrags_droYak2-spikeNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job dd8fbd70-0a5e-5a8d-bbd3-fb9ceb0baa94 with external jobid 'Submitted batch job 11781536'.
+[Wed Jul  5 14:29:04 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:04 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed
+        jobid: 18
+        wildcards: fragType=allFrags_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        jobid: 120
+        wildcards: fragType=allFrags_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.zNorm
+        jobid: 5
+        wildcards: fragType=allFrags, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job b833393a-d702-5d88-ae74-69e1f69785f3 with external jobid 'Submitted batch job 11781538'.
+[Wed Jul  5 14:29:04 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:04 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed
+        jobid: 113
+        wildcards: fragType=allFrag, normType=s, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        jobid: 131
+        wildcards: fragType=allFrag, normType=s, sample=yw-3LW-wing-ak27ac-pel-Rep1, REFGENOME=dm6
+
+Submitted group job 1190a6ae-1d3d-5204-a594-560b2c6b2928 with external jobid 'Submitted batch job 11781539'.
+[Wed Jul  5 14:29:04 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:04 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed
+        jobid: 127
+        wildcards: fragType=allFrags_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        jobid: 26
+        wildcards: fragType=allFrags_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.zNorm
+        jobid: 135
+        wildcards: fragType=allFrags, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 0cf38aed-4562-50d7-b7ed-f486fd4f7ed3 with external jobid 'Submitted batch job 11781540'.
+[Wed Jul  5 14:29:04 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:04 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed
+        jobid: 21
+        wildcards: fragType=allFrag, normType=s, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:04 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg
+        output: BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw
+        jobid: 11
+        wildcards: fragType=allFrag, normType=s, sample=yw-3LW-wing-ak27ac-sup-Rep1, REFGENOME=dm6
+
+Submitted group job 314d5751-ba0f-5458-8ff4-c2636b7c4363 with external jobid 'Submitted batch job 11781541'.
+[Wed Jul  5 14:29:44 2023]
+Finished job 137.
+[Wed Jul  5 14:29:44 2023]
+Finished job 15.
+28 of 109 steps (26%) done
+[Wed Jul  5 14:29:44 2023]
+Finished job 126.
+[Wed Jul  5 14:29:44 2023]
+Finished job 27.
+30 of 109 steps (28%) done
+[Wed Jul  5 14:29:54 2023]
+Finished job 17.
+[Wed Jul  5 14:29:54 2023]
+Finished job 119.
+32 of 109 steps (29%) done
+[Wed Jul  5 14:29:54 2023]
+Finished job 55.
+[Wed Jul  5 14:29:54 2023]
+Finished job 123.
+34 of 109 steps (31%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 10.
+[Wed Jul  5 14:29:55 2023]
+Finished job 121.
+36 of 109 steps (33%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 114.
+[Wed Jul  5 14:29:55 2023]
+Finished job 3.
+38 of 109 steps (35%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 7.
+[Wed Jul  5 14:29:55 2023]
+Finished job 109.
+40 of 109 steps (37%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 98.
+[Wed Jul  5 14:29:55 2023]
+Finished job 70.
+42 of 109 steps (39%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 107.
+[Wed Jul  5 14:29:55 2023]
+Finished job 16.
+44 of 109 steps (40%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 34.
+[Wed Jul  5 14:29:55 2023]
+Finished job 31.
+46 of 109 steps (42%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 65.
+[Wed Jul  5 14:29:55 2023]
+Finished job 104.
+48 of 109 steps (44%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 48.
+[Wed Jul  5 14:29:55 2023]
+Finished job 76.
+50 of 109 steps (46%) done
+[Wed Jul  5 14:29:55 2023]
+Finished job 32.
+[Wed Jul  5 14:29:55 2023]
+Finished job 12.
+52 of 109 steps (48%) done
+[Wed Jul  5 14:29:56 2023]
+Finished job 72.
+[Wed Jul  5 14:29:56 2023]
+Finished job 40.
+54 of 109 steps (50%) done
+[Wed Jul  5 14:29:57 2023]
+Finished job 59.
+[Wed Jul  5 14:29:57 2023]
+Finished job 93.
+56 of 109 steps (51%) done
+[Wed Jul  5 14:29:57 2023]
+Finished job 115.
+[Wed Jul  5 14:29:57 2023]
+Finished job 23.
+58 of 109 steps (53%) done
+[Wed Jul  5 14:29:57 2023]
+Finished job 81.
+[Wed Jul  5 14:29:57 2023]
+Finished job 50.
+60 of 109 steps (55%) done
+[Wed Jul  5 14:29:57 2023]
+Finished job 136.
+[Wed Jul  5 14:29:57 2023]
+Finished job 36.
+62 of 109 steps (57%) done
+[Wed Jul  5 14:29:57 2023]
+Finished job 62.
+63 of 109 steps (58%) done
+[Wed Jul  5 14:29:57 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:57 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed
+        jobid: 54
+        wildcards: fragType=allFrags_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:57 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        jobid: 85
+        wildcards: fragType=allFrags_rpgcNor, normType=m, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:57 2023]
+    rule zNormBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, Logs/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.zNorm
+        jobid: 43
+        wildcards: fragType=allFrags, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+[Wed Jul  5 14:29:57 2023]
+Finished job 41.
+[Wed Jul  5 14:29:57 2023]
+Finished job 78.
+65 of 109 steps (60%) done
+[Wed Jul  5 14:29:58 2023]
+Finished job 33.
+[Wed Jul  5 14:29:58 2023]
+Finished job 56.
+67 of 109 steps (61%) done
+[Wed Jul  5 14:29:58 2023]
+Finished job 129.
+[Wed Jul  5 14:29:58 2023]
+Finished job 19.
+69 of 109 steps (63%) done
+Submitted group job 5bda69d1-5aa6-57de-a6c2-75feb805d9eb with external jobid 'Submitted batch job 11781544'.
+[Wed Jul  5 14:29:58 2023]
+
+group job bigwig (jobs in lexicogr. order):
+
+    [Wed Jul  5 14:29:58 2023]
+    rule callThresholdPeaks:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bw
+        output: Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed
+        jobid: 68
+        wildcards: fragType=allFrag, normType=s, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+
+    [Wed Jul  5 14:29:58 2023]
+    rule convertToBigWig:
+        input: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bg
+        output: BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bw
+        jobid: 89
+        wildcards: fragType=allFrag, normType=s, sample=yw-3LW-wing-ak27ac-pel-Rep2, REFGENOME=dm6
+
+Submitted group job 01283f12-d24e-5140-8789-d84baa2d8df6 with external jobid 'Submitted batch job 11781545'.
+[Wed Jul  5 14:30:09 2023]
+Finished job 144.
+[Wed Jul  5 14:30:09 2023]
+Finished job 24.
+[Wed Jul  5 14:30:09 2023]
+Finished job 4.
+72 of 109 steps (66%) done
+[Wed Jul  5 14:30:09 2023]
+Finished job 71.
+[Wed Jul  5 14:30:09 2023]
+Finished job 49.
+74 of 109 steps (68%) done
+[Wed Jul  5 14:30:20 2023]
+Finished job 35.
+[Wed Jul  5 14:30:20 2023]
+Finished job 96.
+[Wed Jul  5 14:30:20 2023]
+Finished job 91.
+77 of 109 steps (71%) done
+[Wed Jul  5 14:30:20 2023]
+Finished job 44.
+[Wed Jul  5 14:30:20 2023]
+Finished job 145.
+[Wed Jul  5 14:30:20 2023]
+Finished job 138.
+80 of 109 steps (73%) done
+[Wed Jul  5 14:30:21 2023]
+Finished job 86.
+[Wed Jul  5 14:30:21 2023]
+Finished job 100.
+[Wed Jul  5 14:30:21 2023]
+Finished job 87.
+83 of 109 steps (76%) done
+[Wed Jul  5 14:30:31 2023]
+Finished job 64.
+[Wed Jul  5 14:30:31 2023]
+Finished job 103.
+[Wed Jul  5 14:30:31 2023]
+Finished job 142.
+86 of 109 steps (79%) done
+[Wed Jul  5 14:31:12 2023]
+Finished job 125.
+[Wed Jul  5 14:31:12 2023]
+Finished job 133.
+88 of 109 steps (81%) done
+[Wed Jul  5 14:31:12 2023]
+Finished job 57.
+[Wed Jul  5 14:31:12 2023]
+Finished job 82.
+90 of 109 steps (83%) done
+[Wed Jul  5 14:31:12 2023]
+Finished job 131.
+[Wed Jul  5 14:31:12 2023]
+Finished job 113.
+92 of 109 steps (84%) done
+[Wed Jul  5 14:31:12 2023]
+Finished job 11.
+[Wed Jul  5 14:31:12 2023]
+Finished job 21.
+94 of 109 steps (86%) done
+[Wed Jul  5 14:31:42 2023]
+Finished job 106.
+[Wed Jul  5 14:31:42 2023]
+Finished job 28.
+[Wed Jul  5 14:31:42 2023]
+Finished job 102.
+97 of 109 steps (89%) done
+[Wed Jul  5 14:31:42 2023]
+Finished job 120.
+[Wed Jul  5 14:31:42 2023]
+Finished job 5.
+[Wed Jul  5 14:31:42 2023]
+Finished job 18.
+100 of 109 steps (92%) done
+[Wed Jul  5 14:31:42 2023]
+Finished job 26.
+[Wed Jul  5 14:31:42 2023]
+Finished job 135.
+[Wed Jul  5 14:31:42 2023]
+Finished job 127.
+103 of 109 steps (94%) done
+[Wed Jul  5 14:32:12 2023]
+Finished job 89.
+[Wed Jul  5 14:32:12 2023]
+Finished job 68.
+105 of 109 steps (96%) done
+[Wed Jul  5 14:32:42 2023]
+Finished job 85.
+[Wed Jul  5 14:32:42 2023]
+Finished job 43.
+[Wed Jul  5 14:32:42 2023]
+Finished job 54.
+108 of 109 steps (99%) done
+
+[Wed Jul  5 14:32:42 2023]
+localrule all:
+    input: Fastq/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-pel-Rep1_R2_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-sup-Rep1_R2_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim.fastq.gz, Fastq/yw-3LW-wing-ak27ac-pel-Rep2_R2_trim.fastq.gz, Sam/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim.sam, Sam/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim.sam, Sam/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim.sam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_sacCer3_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep1_droYak2_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-sup-Rep1_sacCer3_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-sup-Rep1_droYak2_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep2_sacCer3_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep2_sacCer3_trim_q5_dupsRemoved.bam.bai, Bam/yw-3LW-wing-ak27ac-pel-Rep2_droYak2_trim_q5_dupsRemoved.bam, Bam/yw-3LW-wing-ak27ac-pel-Rep2_droYak2_trim_q5_dupsRemoved.bam.bai, Logs/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved_genomeStats.tsv, Logs/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved_genomeStats.tsv, Logs/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim_q5_dupsRemoved_genomeStats.tsv, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bg, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm.bw, Peaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_peaks.narrowPeak, Peaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_peaks.narrowPeak, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_sacCer3-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed, Threshold_PeakCalls/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_droYak2-spikeNorm_thresholdPeaks.bed, FastQC/yw-3LW-wing-ak27ac-pel-Rep1_R1_fastqc.html, FastQC/yw-3LW-wing-ak27ac-sup-Rep1_R1_fastqc.html, FastQC/yw-3LW-wing-ak27ac-pel-Rep2_R1_fastqc.html, FastQC/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim_fastqc.html, FastQC/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim_fastqc.html, FastQC/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim_fastqc.html, FQscreen/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim_screen.txt, FQscreen/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim_screen.txt, FQscreen/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim_screen.txt, FQscreen/yw-3LW-wing-ak27ac-pel-Rep1_R1_trim_screen.html, FQscreen/yw-3LW-wing-ak27ac-sup-Rep1_R1_trim_screen.html, FQscreen/yw-3LW-wing-ak27ac-pel-Rep2_R1_trim_screen.html, multiqc_report.html, Plots/FragDistInPeaks/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_allFrags_fragDistPlot.png, Plots/FragDistInPeaks/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_allFrags_fragDistPlot.png, Plots/FragDistInPeaks/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_allFrags_fragDistPlot.png, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_allFrags_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_20to120_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-sup-Rep1_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, BigWig/yw-3LW-wing-ak27ac-pel-Rep2_dm6_trim_q5_dupsRemoved_150to700_rpgcNorm_zNorm.bw, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim.tsv, AlignmentStats/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5.tsv, AlignmentStats/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim_q5.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim_q5.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved.tsv, AlignmentStats/yw-3LW-wing-ak27ac-sup-Rep1_dm6-sacCer3-droYak2_trim_q5_dupsRemoved.tsv, AlignmentStats/yw-3LW-wing-ak27ac-pel-Rep2_dm6-sacCer3-droYak2_trim_q5_dupsRemoved.tsv
+    jobid: 0
+
+[Wed Jul  5 14:32:42 2023]
+Finished job 0.
+109 of 109 steps (100%) done
+Complete log: /work/users/m/j/mjn15/H3K27ac_CnR/cutNrun-pipeline/.snakemake/log/2023-07-05T142748.895006.snakemake.log

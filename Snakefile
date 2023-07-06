@@ -10,6 +10,7 @@ pool_basename_columns = config['poolBaseNameColumns']
 REFGENOME = config['refGenome']
 SPIKEGENOME = config['spikeGenome']
 REFGENOMEPATH = config['genome'][REFGENOME]['bowtie']
+EXCLUSIONPATH = config['genome'][REFGENOME]['exclusionList']
 controlDNAPath  = config['genome'][REFGENOME]['controlDNAPath']
 chromSize_Path  = config['genome'][REFGENOME]['chrSize']
 
@@ -336,13 +337,16 @@ rule splitSpecies:
 	params:
 		#prefix = lambda wildcards : ["{}_".format(wildcards.species)]
 		prefix = ["{}_".format(species) for species in speciesList],
-		module = modules['samtoolsVer']
+		#module = modules['samtoolsVer']
+		samtools = modules['samtoolsVer'],
+		bedtools = modules['bedtoolsVer'],
+		exlist = EXCLUSIONPATH
 	run:
 	    for prefix, output_bam in zip(params.prefix, output.bam):
 		    #print("prefix: {}, bam: {}".format(prefix, output_bam))
 		    #shell("module purge && module load {} && ".format(params.module))
-		    shell("module purge && module load {} && sh scripts/get_bam_reads_prefix.sh {} {} {}".format(params.module, input.bam, prefix, output_bam))
-		    shell("module purge && module load {} && samtools index {bam} {index}".format(params.module, bam = output_bam, index = output_bam + ".bai"))
+				shell("module purge && module load {} {} && sh scripts/get_bam_reads_prefix.sh {} {} {} {}".format(params.samtools, params.bedtools, input.bam, prefix, output_bam, params.exlist))
+				shell("module purge && module load {} && samtools index {bam} {index}".format(params.samtools, bam = output_bam, index = output_bam + ".bai"))
 		#TODO: IS SORT ORDER OF prefix and output preserved??? can I zip or do I need to do something more complex?
 		# - to test this, I included a print statement above
 		# - CONFIRMED: order is preserved based on speciesList order
